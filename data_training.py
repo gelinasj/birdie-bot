@@ -17,6 +17,11 @@ def FileToWords(filename):
     contents = re.sub("!", " ! ", contents)
     contents = re.sub("\?", " ? ", contents)
     contents = re.sub(",", " , ", contents)
+    contents = re.sub(":", "", contents)
+    contents = re.sub("\"", "", contents)
+    contents = re.sub("-", "", contents)
+    contents = re.sub("{", "", contents)
+    contents = re.sub("}", "", contents)
     words = contents.split()
     return(words)
 
@@ -40,7 +45,6 @@ def getWordOccurrences(l):
             word = files[word_index]
             next_word = files[word_index + 1]
             next_words = word_occurences.setdefault(word,{})
-
             next_words.setdefault(next_word,0)
             next_words[next_word] += 1
     return word_occurences
