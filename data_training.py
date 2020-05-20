@@ -10,7 +10,7 @@ OUTPUT_JSON = "trained_data.json"
 # EFFECTS: Returns an array of words and ending punctuation, stored in the same order as in the corresponding file
 # Example: if file 'f' consists of "This is a sentence.", returns ['This', 'is', 'a', 'sentenec', '.']
 def FileToWords(filename):
-    file = open(filename, "r")
+    file = open(filename, "r", encoding="utf8")
     contents = file.read().lower()
     file.close()
     contents = re.sub("\.+", " . ", contents)
