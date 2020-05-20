@@ -22,6 +22,8 @@ def FileToWords(filename):
     contents = re.sub("-", "", contents)
     contents = re.sub("{", "", contents)
     contents = re.sub("}", "", contents)
+    contents = re.sub("\)", "", contents)
+    contents = re.sub("\(", "", contents)
     words = contents.split()
     return(words)
 

@@ -17,7 +17,7 @@ def generate_sentence():
     first_word = get_first_word(trained_data)
     sentence = first_word
     last_word = first_word
-    for i in range(1, 10):
+    for i in range(1, 50):
         random_perc = random_perc = random.random()
         last_word = get_next_word(trained_data[last_word], random_perc)
         if last_word in ".!?,":
