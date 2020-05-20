@@ -3,12 +3,13 @@ import json
 import functools
 import random
 import os
+import data_training
 
 TRAINING_FILES = "./example_data"
 OUTPUT_JSON = "trained_data.json"
 
 def read_training_data():
-    os.chdir(TRAINING_FILES)
+    #os.chdir(TRAINING_FILES)
     file = open(OUTPUT_JSON, "r")
     return json.loads(file.read())
 
