@@ -34,7 +34,8 @@ def FilesToListOfFileWords(folder):
     words = []
     os.chdir(folder)
     for i in os.listdir():
-        words = words + [FileToWords(i)]
+        if "json" not in i.lower():
+            words = words + [FileToWords(i)]
     return(words)
 
 #Signature: String[String []] -> Map{String,Map{String,Int}}

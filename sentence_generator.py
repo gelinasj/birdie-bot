@@ -15,15 +15,23 @@ def read_training_data():
 def generate_sentence():
     trained_data = read_training_data()
     first_word = get_first_word(trained_data)
-    sentence = first_word
+    sentence = first_word[0:1].upper() + first_word[1:]
     last_word = first_word
+    sentence_start = False
     for i in range(1, 50):
         random_perc = random_perc = random.random()
         last_word = get_next_word(trained_data[last_word], random_perc)
         if last_word in ".!?,":
+            if last_word in ".!?":
+                sentence_start = True
             sentence += last_word
         else:
-            sentence += " " + last_word
+            if sentence_start:
+                sentence += " " + last_word[0:1].upper() + last_word[1:]
+                sentence_start = False
+            else:
+                sentence += " " + last_word
+            
     return(sentence)
 
 # Retrieves first word for sentence generation
