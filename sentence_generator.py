@@ -9,7 +9,6 @@ TRAINING_FILES = "./example_data"
 OUTPUT_JSON = "trained_data.json"
 
 def read_training_data():
-    #os.chdir(TRAINING_FILES)
     file = open(OUTPUT_JSON, "r")
     return json.loads(file.read())
 
@@ -23,8 +22,7 @@ def generate_sentence():
         random_perc = random_perc = random.random()
         last_word = get_next_word(trained_data[last_word], random_perc)
         if last_word in ".!?,":
-            if last_word in ".!?":
-                sentence_start = True
+            sentence_start = True
             sentence += last_word
         else:
             if sentence_start:
@@ -32,7 +30,7 @@ def generate_sentence():
                 sentence_start = False
             else:
                 sentence += " " + last_word
-            
+
     return(sentence)
 
 # Retrieves first word for sentence generation
