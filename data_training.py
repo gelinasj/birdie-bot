@@ -2,6 +2,7 @@ import re
 import os
 import json
 
+UNPACK_COMPRESSED_DATA = 'tar zxvf data.tar.gz'
 TRAINING_FILES = "./example_data"
 OUTPUT_JSON = "trained_data.json"
 
@@ -34,7 +35,7 @@ def FilesToListOfFileWords(folder):
     words = []
     os.chdir(folder)
     for i in os.listdir():
-        if "json" not in i.lower() && "tar.gz" not in i.lower():
+        if "json" not in i.lower():
             words = words + [FileToWords(i)]
     return(words)
 
@@ -53,6 +54,7 @@ def getWordOccurrences(l):
     return word_occurences
 
 def run_trainer():
+    os.system(UNPACK_COMPRESSED_DATA)
     output = json.dumps(getWordOccurrences(FilesToListOfFileWords(TRAINING_FILES)))
     file = open(OUTPUT_JSON,"w+")
     file.write(output)
