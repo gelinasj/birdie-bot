@@ -1,4 +1,5 @@
 __pycache__/
 example_data/*
-*.ipynb
-*.log
+*.ipynb*
+*.log*
+!example_date/data.tar.gz
