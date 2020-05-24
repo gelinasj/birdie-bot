@@ -34,7 +34,7 @@ def FilesToListOfFileWords(folder):
     words = []
     os.chdir(folder)
     for i in os.listdir():
-        if "json" not in i.lower():
+        if "json" not in i.lower() && "tar.gz" not in i.lower():
             words = words + [FileToWords(i)]
     return(words)
 
