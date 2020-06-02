@@ -39,6 +39,8 @@ def get_all_next_words(graph, memory, memory_depth):
         match_depth = 0
         for i in range(0, memory_depth):
             curr_word_memory = memory[len(memory) - i - 1].lower()
+            if potential_edge_count <= i:
+                break
             check_word = graph.get_edge(potential_edge_count - i).in_node.word
             if check_word != curr_word_memory:
                 break
@@ -60,14 +62,19 @@ def get_next_word(graph, memory, max_memory):
 
 def generate_sentence(graph):
     sentence = get_starting_memory(graph)
-    for i in range(0,15):
-        sentence.append(get_next_word(graph, sentence, MAX_MEMORY))
+    i = 0
+    word = ""
+    while (word not in ".?!", True)[i < 20]:
+        memory = MAX_MEMORY + i // 5
+        word = get_next_word(graph, sentence, memory)
+        sentence.append(word)
+        i += 1
     return(sentence)
 
 def get_starting_memory(graph):
     # Are we going to look at words after punctuation?
     # To consider: 2-3 words at start
-    return(["people", "say"])
+    return([get_next_word(graph, ["."], 1)])
 
 # Prints the array of words into a sentence
 def print_sentence(sentence_array):
@@ -82,6 +89,16 @@ def print_sentence(sentence_array):
 def driver():
     data = FilesToListOfFileWords(TRAINING_FILES)
     graph = create_word_graph(data)
-    print_sentence(generate_sentence(graph))
+    graph
+    for i in range(0, 15):
+        print_sentence(generate_sentence(graph))
+        print("\n")
 
 driver()
+
+########################################################
+# Optimizations to consider:
+# - Memory depth adjustment throughout sentence
+# - Add weights to words based on match depth
+# - Generate first word or words
+# - How to end the tweet
