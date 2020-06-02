@@ -79,11 +79,17 @@ def get_starting_memory(graph):
 # Prints the array of words into a sentence
 def print_sentence(sentence_array):
     sentence = ""
+    last_word = sentence_array[0]
+    start_sentence = True
     for word in sentence_array:
+        if last_word in "?!." or start_sentence == True:
+            word = word[0].upper() + word[1:]
+            start_sentence = False
         if word in ",.?!":
             sentence += word
         else:
             sentence += " " + word
+        last_word = word
     print(sentence)
 
 def driver():
