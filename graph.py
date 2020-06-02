@@ -4,6 +4,7 @@ class Graph:
 
     def __init__(self):
         self.node_map = {}
+        self.edge_map = {}
 
     def __str__(self):
         return(self.node_map.__str__())
@@ -14,5 +15,9 @@ class Graph:
     def get_node(self, word):
         return(self.node_map.get(word))
 
+    def get_edge(self, edge_count):
+        return(self.edge_map.get(edge_count))
+
     def create_edge(self, in_node, edge_count, out_node):
-        out_node.add_incoming_edge(in_node, edge_count)
+        edge = out_node.add_incoming_edge(in_node, edge_count)
+        return(self.edge_map.setdefault(edge_count, edge))

@@ -11,3 +11,4 @@ class Node:
         edge = Edge(incoming_node, edge_count, self)
         self.incoming.append(edge)
         incoming_node.outgoing.append(edge)
+        return edge
