@@ -81,10 +81,13 @@ def print_sentence(sentence_array):
     sentence = ""
     last_word = sentence_array[0]
     start_sentence = True
-    for word in sentence_array:
+    for words in sentence_array:
+        word = words
         if last_word in "?!." or start_sentence == True:
             word = word[0].upper() + word[1:]
             start_sentence = False
+        # if word in proper_nouns_lower:
+        #     word = proper_nouns[proper_nouns_lower.index(word)]
         if word in ",.?!":
             sentence += word
         else:
@@ -99,6 +102,12 @@ def driver():
     for i in range(0, 15):
         print_sentence(generate_sentence(graph))
         print("\n")
+
+# file = open("propernouns", "r")
+# proper_nouns = json.loads(file.read())
+# proper_nouns_lower = ["word"] * len(proper_nouns)
+# for i in range(0, len(proper_nouns)):
+#     proper_nouns_lower[i] = proper_nouns[i].lower()
 
 driver()
 
