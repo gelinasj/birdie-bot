@@ -1,5 +1,5 @@
 from graph_data_training import *
-from graph import Graph.Graph
+from graph import Graph
 import functools
 import random
 import itertools
