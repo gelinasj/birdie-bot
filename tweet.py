@@ -9,10 +9,6 @@ ACCESS_SECRET_TOKEN = "Ysyrz93W9wZc8zaO6GYFZM9iP7asPqIVhBLWrTSlUj4Sf"
 POST_TWEET_URL = "https://api.twitter.com/1.1/statuses/update.json"
 
 def tweet():
-<<<<<<< HEAD
-    print("buttt")
-=======
->>>>>>> f430c7b380c250b20b8dcc2ab0f144ed8e7151b0
     tweet_msg = generate_sentence_string()
     params = {"status": tweet_msg}
     oauth = OAuth1(CONSUMER_KEY,
@@ -22,9 +18,3 @@ def tweet():
     response = requests.post(url=POST_TWEET_URL, auth=oauth, params=params)
     print("RESPONSE STATUS CODE: " + str(response.status_code))
     print("REPONSE BODY:\n" + response.text)
-
-tweet()
-<<<<<<< HEAD
-print("Here")
-=======
->>>>>>> f430c7b380c250b20b8dcc2ab0f144ed8e7151b0
