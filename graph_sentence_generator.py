@@ -1,5 +1,5 @@
 from graph_data_training import *
-from graph import Graph
+from graph import Graph.Graph
 import functools
 import random
 import itertools
@@ -76,8 +76,8 @@ def get_starting_memory(graph):
     # To consider: 2-3 words at start
     return([get_next_word(graph, ["."], 1)])
 
-# Prints the array of words into a sentence
-def print_sentence(sentence_array):
+# Returns the array of words stitched together into a sentence
+def convert_to_string(sentence_array):
     sentence = ""
     last_word = sentence_array[0]
     start_sentence = True
@@ -93,23 +93,13 @@ def print_sentence(sentence_array):
         else:
             sentence += " " + word
         last_word = word
-    print(sentence)
+    return(sentence)
 
-def driver():
+def generate_sentence_string():
     data = FilesToListOfFileWords(TRAINING_FILES)
     graph = create_word_graph(data)
-    graph
-    for i in range(0, 15):
-        print_sentence(generate_sentence(graph))
-        print("\n")
-
-# file = open("propernouns", "r")
-# proper_nouns = json.loads(file.read())
-# proper_nouns_lower = ["word"] * len(proper_nouns)
-# for i in range(0, len(proper_nouns)):
-#     proper_nouns_lower[i] = proper_nouns[i].lower()
-
-driver()
+    sentence = convert_to_string(generate_sentence(graph))
+    return(sentence)
 
 ########################################################
 # Optimizations to consider:

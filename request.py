@@ -1,21 +1,24 @@
 import requests
+from graph_sentence_generator import *
 from requests_oauthlib import OAuth1
 
 CONSUMER_KEY = "31JbVNzBE6Y4PC6H3OqT8MlzS"
 CONSUMER_SECRET_KEY = "OKvm5MhM0D6mlfTitdeppbl5ZIAaG0P0SPdfrYIhtcA0bslql0"
 ACCESS_TOKEN = "1263665819000733698-uugqwqRNvDde2rmFtyYmq8gcYRTyQQ"
 ACCESS_SECRET_TOKEN = "Ysyrz93W9wZc8zaO6GYFZM9iP7asPqIVhBLWrTSlUj4Sf"
-
-REQUEST_URL = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=MichaelGaryBot"
-
 POST_TWEET_URL = "https://api.twitter.com/1.1/statuses/update.json"
-TWEET_MSG = "Phyllis got flashed. It's, um, one of my best ones did. And this is something that you would like to if i wanted to give you my best man."
 
-params = {"status": TWEET_MSG}
-oauth = OAuth1(CONSUMER_KEY,
+def tweet():
+    print("buttt")
+    tweet_msg = generate_sentence_string()
+    params = {"status": tweet_msg}
+    oauth = OAuth1(CONSUMER_KEY,
                    client_secret=CONSUMER_SECRET_KEY,
                    resource_owner_key=ACCESS_TOKEN,
                    resource_owner_secret=ACCESS_SECRET_TOKEN)
-response = requests.post(url=POST_TWEET_URL, auth=oauth, params=params)
+    response = requests.post(url=POST_TWEET_URL, auth=oauth, params=params)
+    print("RESPONSE STATUS CODE: " + response.status_code)
+    print("REPONSE BODY:\n" + response.text)
 
-print(response.content)
+tweet()
+print("Here")
