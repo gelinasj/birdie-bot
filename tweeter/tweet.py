@@ -8,6 +8,10 @@ POST_TWEET_URL = "https://api.twitter.com/1.1/statuses/update.json"
 def tweet():
     tweet_msg = generate_sentence_string()
     params = {"status": tweet_msg}
+    print(os.environ.get('CONSUMER_KEY'))
+    print(os.environ.get('CONSUMER_SECRET_KEY'))
+    print(os.environ.get('ACCESS_TOKEN'))
+    print(os.environ.get('ACCESS_SECRET_TOKEN'))
     oauth = OAuth1(os.environ.get('CONSUMER_KEY'),
                    client_secret=os.environ.get('CONSUMER_SECRET_KEY'),
                    resource_owner_key=os.environ.get('ACCESS_TOKEN'),
