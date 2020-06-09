@@ -8,10 +8,10 @@ POST_TWEET_URL = "https://api.twitter.com/1.1/statuses/update.json"
 def tweet():
     tweet_msg = generate_sentence_string()
     params = {"status": tweet_msg}
-    oauth = OAuth1(os.eviron.get(CONSUMER_KEY),
-                   client_secret=os.eviron.get(CONSUMER_SECRET_KEY),
-                   resource_owner_key=os.eviron.get(ACCESS_TOKEN),
-                   resource_owner_secret=os.eviron.get(ACCESS_SECRET_TOKEN))
+    oauth = OAuth1(os.environ.get("CONSUMER_KEY"),
+                   client_secret=os.environ.get("CONSUMER_SECRET_KEY"),
+                   resource_owner_key=os.environ.get("ACCESS_TOKEN"),
+                   resource_owner_secret=os.environ.get("ACCESS_SECRET_TOKEN"))
     response = requests.post(url=POST_TWEET_URL, auth=oauth, params=params)
     print("RESPONSE STATUS CODE: " + str(response.status_code))
     print("REPONSE BODY:\n" + response.text)
