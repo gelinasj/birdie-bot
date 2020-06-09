@@ -2,9 +2,10 @@ import re
 import os
 import json
 from tweeter.graph import Graph
+from tweet_generator.settings import *
 
 UNPACK_COMPRESSED_DATA = 'tar zxvf data.tar.gz'
-TRAINING_FILES = "./tweeter/example_data"
+TRAINING_FILES = os.path.join(BASE_DIR, 'tweeter/example_data')
 OUTPUT_JSON = "trained_data.json"
 
 # Signature: String -> String[]

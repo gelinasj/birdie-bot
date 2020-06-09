@@ -1,11 +1,13 @@
 import requests
 import os
+from tweet_generator.settings import *
 from tweeter.graph_sentence_generator import *
 from requests_oauthlib import OAuth1
 
 POST_TWEET_URL = "https://api.twitter.com/1.1/statuses/update.json"
 
 def tweet():
+    os.chdir(BASE_DIR)
     tweet_msg = generate_sentence_string()
     params = {"status": tweet_msg}
     oauth = OAuth1(os.environ.get('CONSUMER_KEY'),
