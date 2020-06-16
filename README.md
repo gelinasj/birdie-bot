@@ -18,6 +18,6 @@ If you would like to use the Birdie Bot yourself, after cloning the repository, 
 6. Update your AWS Lambda function's `CONSUMER_KEY`, `CONSUMER_SECRET_KEY`, `ACCESS_TOKEN`, and `ACCESS_SECRET_TOKEN` environment variables with the values of your recently created Twitter app's `API key`, `API secret key`, `Access token`, and `Access token secret` respectively
 7. Finally, create a [AWS CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html) event that triggers your Lambda as frequently as you wish
 
-At this point, your bot is out of your control... with great power comes great responsibility
+At this point, your bot is out of your control... with great power comes great responsibility!
 
 ![](michael.gif)
