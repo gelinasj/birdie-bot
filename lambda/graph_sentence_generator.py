@@ -1,5 +1,5 @@
-from tweeter.graph_data_training import *
-from tweeter.graph import Graph
+from graph_data_training import *
+from graph import Graph
 import functools
 import random
 import itertools

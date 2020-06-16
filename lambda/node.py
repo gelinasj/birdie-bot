@@ -1,4 +1,4 @@
-from tweeter.edge import Edge
+from edge import Edge
 
 class Node:
 
