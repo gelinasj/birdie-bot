@@ -5,7 +5,7 @@ from graph_sentence_generator import *
 from requests_oauthlib import OAuth1
 
 POST_TWEET_URL = "https://api.twitter.com/1.1/statuses/update.json"
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = "/var/task/"
 
 def lambda_handler(event, context):
     os.chdir(BASE_DIR)

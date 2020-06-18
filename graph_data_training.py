@@ -4,9 +4,8 @@ import json
 from graph import Graph
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-UNPACK_COMPRESSED_DATA = 'tar zxvf data.tar.gz'
-TRAINING_FILES = os.path.join(BASE_DIR, 'tweeter/example_data')
-OUTPUT_JSON = "trained_data.json"
+UNPACK_COMPRESSED_DATA = "tar zxvf data.tar.gz"
+TRAINING_FILES = "/var/task/example_data"
 
 # Signature: String -> String[]
 # REQUIRES: filename is a string to a valid file
@@ -37,8 +36,7 @@ def FilesToListOfFileWords(folder):
     words = []
     os.chdir(folder)
     for i in os.listdir():
-        if "json" not in i.lower():
-            words = words + FileToWords(i)
+        words = words + FileToWords(i)
     return(words)
 
 def create_word_graph(data):
